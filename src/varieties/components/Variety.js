@@ -5,8 +5,8 @@ import Card from '../../shared/components/UIElements/Card'
 
 const Variety = props => {
   return (
-    <li>
-      <Card>
+    <li className="variety-item">
+      <Card className="variety-item__content">
         <div>
           <h2>{props.name}</h2>
         </div>
