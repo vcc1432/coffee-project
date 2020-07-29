@@ -31,9 +31,7 @@ const Varieties = () => {
 		let newFilters;
 		if (event.target.name === 'producing_countries') {
 			let selectedCountries = [];
-			[...event.target.options].filter(option => option.selected).map(option => {
-				selectedCountries.push(option.value);
-			});
+      [...event.target.options].filter(option => option.selected).map(option => selectedCountries.push(option.value));
 			newFilters = {...filters, [event.target.name]: selectedCountries};
 		} else {
 			newFilters = {...filters, [event.target.name]: event.target.value};
@@ -74,10 +72,10 @@ const Varieties = () => {
 				</div>
 			)}
 			{!isLoading && varieties && <VarietiesList items={varieties} />}
-			<Filters   
+			{!isLoading && varieties && <Filters   
 				filters={filters}
 				handleSelect={handleSelect}
-			/>
+			/>}
 		</React.Fragment>
 	);
 };
