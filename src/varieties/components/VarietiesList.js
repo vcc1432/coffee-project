@@ -20,6 +20,7 @@ const VarietiesList = props => {
         <Variety 
           key={variety.name} 
           name={variety.name}
+          description={variety.description}
         />
       ))}
     </ul>

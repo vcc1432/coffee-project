@@ -9,25 +9,18 @@ const Variety = props => {
   const [ showDetails, setShowDetails] = useState(false);
   const openDetailsHandler = () => setShowDetails(true);
   const closeDetailsHandler = () => setShowDetails(false);
-
-  console.log(showDetails);
-  
+ 
   return (
     <React.Fragment>
-      {showDetails && 
-      <Card className="variety-modal">
-        <div onClick={closeDetailsHandler}>
+    <li className="variety-item">
+      <Card className="variety-item__content">
+        <div onClick={openDetailsHandler}>
           <h2>{props.name}</h2>
+          <p>{props.description}</p>
+
         </div>
       </Card>
-      }
-      {!showDetails && <li className="variety-item">
-        <Card className="variety-item__content">
-          <div onClick={openDetailsHandler}>
-            <h2>{props.name}</h2>
-          </div>
-        </Card>
-      </li>}
+    </li>
     </React.Fragment>
   )
 };

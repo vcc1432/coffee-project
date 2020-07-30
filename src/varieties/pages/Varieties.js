@@ -52,6 +52,11 @@ const Varieties = () => {
 
     setFilters(newFilters);
 
+    filterVarieties(newFilters);
+    
+  };
+
+  const filterVarieties = (newFilters) => {
     const filteredVarieties = loadedVarieties.filter(item => {
       let quality =
         newFilters.quality_potential !== "" ?
@@ -72,9 +77,19 @@ const Varieties = () => {
       return quality && leafRust && countries;
     })
     setVarieties(filteredVarieties);
+  }
 
+  const handleClearFilters = () => {
+    let newFilters = {
+      producing_countries: [],
+      quality_potential: '',
+      leaf_rust: ''
+    }
+    setFilters(newFilters);
 
-  };
+    filterVarieties(newFilters);
+  }
+
 
   return (
 		<React.Fragment>
@@ -85,7 +100,8 @@ const Varieties = () => {
 			)}
 			{!isLoading && varieties && <Filters   
 				filters={filters}
-				handleSelect={handleSelect}
+        handleSelect={handleSelect}
+        handleClearFilters={handleClearFilters}
       />}
       {!isLoading && varieties && <VarietiesList items={varieties} />}
 		</React.Fragment>

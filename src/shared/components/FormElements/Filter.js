@@ -1,9 +1,12 @@
 import React from 'react';
 
+import './Filter.css';
+
 const Filters = props => {
   return (
-    <div className='filter-wrapper'>
-      <select multiple className='filter-select' name='producing_countries' value={props.filters.producing_countries} onChange={props.handleSelect}>
+    <div className='filter-wrapper center'>
+    <h1>Filters: </h1>
+      <select multiple className='element filter-select' name='producing_countries' value={props.filters.producing_countries} onChange={props.handleSelect}>
         <option value='Kenya'>Kenya</option>
         <option value='Burundi'>Burundi</option>
         <option value='Colombia'>Colombia</option>
@@ -20,24 +23,25 @@ const Filters = props => {
         <option value='Vietnam'>Vietnam</option>
         <option value='Brazil'>Brazil</option>
         <option value='Peru'>Peru</option>
-
       </select>
 
-      <select className='filter-select' name='quality_potential' value={props.filters.quality_potential} onChange={props.handleSelect}>
+      <select className='element filter-select' name='quality_potential' value={props.filters.quality_potential} onChange={props.handleSelect}>
         <option value=''>Search by Quality</option>
-        <option value='EXCEPTIONAL'>EXCEPTIONAL</option>
-        <option value='VERY_GOOD'>VERY_GOOD</option>
-        <option value='GOOD'>GOOD</option>
-        <option value='LOW'>LOW</option>
-        <option value='VERY_LOW'>VERY_LOW</option>
+        <option value='EXCEPTIONAL'>Exceptional</option>
+        <option value='VERY_GOOD'>Very good</option>
+        <option value='GOOD'>Good</option>
+        <option value='LOW'>Low</option>
+        <option value='VERY_LOW'>Very low</option>
       </select>
 
-      <select className='filter-select' name='leaf_rust' value={props.filters.leaf_rust} onChange={props.handleSelect}>
+      <select className='element filter-select' name='leaf_rust' value={props.filters.leaf_rust} onChange={props.handleSelect}>
         <option value=''>Search by leaf rust resistance</option>    
-        <option value='RESISTANT'>RESISTANT</option>
-        <option value='TOLERANT'>TOLERANT</option>
-        <option value='SUSCEPTIBLE'>SUSCEPTIBLE</option>
+        <option value='RESISTANT'>Resistant</option>
+        <option value='TOLERANT'>Tolerant</option>
+        <option value='SUSCEPTIBLE'>Susceptible</option>
       </select>
+
+      <div className='element clear' onClick={props.handleClearFilters}><p>Clear Filters</p></div>
     </div>
   );
 };
