@@ -3,13 +3,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It implements the coffee-varieties API at https://coffee-varieties.now.sh/api. 
 It will fetch all the available coffee varieties, which can be filtered in the frontend of the application. The user can filter by one or more countries, quality potential and leaf rust resistance.
 
-The user can select one or more filters on top of the page. Multiple countries can be selected by holding the cmd/ctrl-button and clicking the country. The other filters are dropdowns from which one choice can be selected. When a flter is selected, the list of coffee varieties is automatically updated, and takes all filters into account. If the user wants to reset everything, the 'clear filters'-button can be clicked. 
+The user can select one or more filters on top of the page. Multiple countries can be selected by holding the cmd/ctrl-button and clicking the country. The other filters are dropdowns from which one choice can be selected. When a flter is selected, the list of coffee varieties is automatically updated, and takes all filters into account. If the user wants to reset everything, the 'clear filters'-button can be clicked and all the options will be displayed again. 
 
 ## Technical Decisions
 
 The decision was made to divide the React-app into stateful- and stateless functional components that use hooks to manage state. The Varieties.js component serves as the homepage, which also handles the connection to the backend and the state of the application. From there, a list of coffee varieties and filters are rendered. 
 
-As querying the API was not possible, the focus was on frontend filtering. Since the data retrieved from the API is manageable, this works for this case. However, to make a more scalable application the api would be queried and routing would be used to display a detailpage. 
+As querying the API was not possible, the focus was on frontend filtering. Since the data retrieved from the API is manageable, this works for this case. However, to make a more scalable application the API would be queried and routing would be used to display a detail page. 
 
 ## Available Scripts
 
@@ -38,7 +38,7 @@ Since there was limited time to set up this application, I have a few ideas for 
 - Tests in Jest and Enzyme would have been set up. 
 - Detail pages: If the user would click an item in the list, this will trigger a modal-screen to pop up, styled according to [this example](https://coffee-varieties.now.sh/ui-reference.png). It would be a child of the Variety.js component, and would therefore have access to its props.
   - The modal will be a resuable component, that will be shown on click on a card, and closed when the user clicks outside of the modal. 
-- Show an error message when api data fetch failed.
+- Show an error message when API data fetch failed.
 - Currently, the options in the filters are harcoded. Instead, the [schema](https://coffee-varieties.now.sh/schema/varieties.json) would be dynamically fetched to find the enums for the quality and resistance types, and pass them as props to the Filter component. After that, the options will be mapped and assigned the correct value and label. 
   - For countries, as they are not described in the schema, the fetched data would be mapped and all the countries will be pushed into an array, which is also passed to the Filter.js component (duplicates removed).
   
