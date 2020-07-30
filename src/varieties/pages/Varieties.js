@@ -17,6 +17,7 @@ const Varieties = () => {
     quality_potential: '',
     leaf_rust: ''
   });
+  
   const {
     isLoading,
     sendRequest
@@ -32,7 +33,6 @@ const Varieties = () => {
     };
     fetchVarieties();
   }, [sendRequest]);
-
 
   const handleSelect = (event) => {
     let newFilters;

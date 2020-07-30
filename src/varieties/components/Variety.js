@@ -16,7 +16,10 @@ const Variety = props => {
       <Card className="variety-item__content">
         <div onClick={openDetailsHandler}>
           <h2>{props.name}</h2>
+          <hr/>
           <p>{props.description}</p>
+          <hr/>
+          <p>Quality: {props.quality.replace(/_/g, ' ').toLowerCase()}</p>
 
         </div>
       </Card>

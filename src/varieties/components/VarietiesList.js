@@ -21,6 +21,7 @@ const VarietiesList = props => {
           key={variety.name} 
           name={variety.name}
           description={variety.description}
+          quality={variety.quality_potential}
         />
       ))}
     </ul>
