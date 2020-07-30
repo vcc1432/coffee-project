@@ -7,9 +7,9 @@ The user can select one or more filters on top of the page. Multiple countries c
 
 ## Technical Decisions
 
-I chose to divide the React-app into stateful- and stateless functional components that use hooks to manage state. The Varieties.js component serves as the homepage, which also handles the connection to the backend and the state of the application. From there, a list of coffee varieties and filters are rendered. 
+The decision was made to divide the React-app into stateful- and stateless functional components that use hooks to manage state. The Varieties.js component serves as the homepage, which also handles the connection to the backend and the state of the application. From there, a list of coffee varieties and filters are rendered. 
 
-As querying the API was not possible, I chose to focus on frontend filtering. Because the data retrieved from the API is manageable, this works in this case. However, to make a more scalable application I would query the api and use routing to display a detailpage. 
+As querying the API was not possible, the focus was on frontend filtering. Since the data retrieved from the API is manageable, this works for this case. However, to make a more scalable application the api would be queried and routing would be used to display a detailpage. 
 
 ## Available Scripts
 
@@ -34,11 +34,11 @@ The build is minified and the filenames include the hashes.
 
 ## Future improvements, features and fixes
 
-Since there was limited time to set up this application, I have some ideas for future improvements. Given an extra day for the assignment:
-- I would have set up tests in Jest and Enzyme. 
-- If the user would click an item in the list, this would trigger a modal-screen to pop up, styled according to [this example](https://coffee-varieties.now.sh/ui-reference.png). It would be a child of the Variety.js component, and would therefore have access to its props.
+Since there was limited time to set up this application, I have a few ideas for future improvements:
+- Tests in Jest and Enzyme would have been set up. 
+- Detail pages: If the user would click an item in the list, this will trigger a modal-screen to pop up, styled according to [this example](https://coffee-varieties.now.sh/ui-reference.png). It would be a child of the Variety.js component, and would therefore have access to its props.
   - The modal will be a resuable component, that will be shown on click on a card, and closed when the user clicks outside of the modal. 
 - Show an error message when api data fetch failed.
-- Currently, the options in the filters are harcoded. I would dynamically fetch the [schema](https://coffee-varieties.now.sh/schema/varieties.json), find the enums for the quality and resistance types, and pass them as props to the Filter component. I would map through the options and assign them the correct value and label. 
-  - For countries, as they are not described in the schema, I would map through the fetched data and push all the countries in an array (remove duplicates).
+- Currently, the options in the filters are harcoded. Instead, the [schema](https://coffee-varieties.now.sh/schema/varieties.json) would be dynamically fetched to find the enums for the quality and resistance types, and pass them as props to the Filter component. After that, the options will be mapped and assigned the correct value and label. 
+  - For countries, as they are not described in the schema, the fetched data would be mapped and all the countries will be pushed into an array, which is also passed to the Filter.js component (duplicates removed).
   
