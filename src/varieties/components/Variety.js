@@ -1,15 +1,10 @@
-import React, {
-  useState
-} from 'react';
+import React from 'react';
 import './Variety.css'
 import Card from '../../shared/components/UIElements/Card';
 import { NavLink } from 'react-router-dom';
 
 
 const Variety = props => {
-  const [ showDetails, setShowDetails] = useState(false);
-  const openDetailsHandler = () => setShowDetails(true);
-  const closeDetailsHandler = () => setShowDetails(false);
  
   return (
     <React.Fragment>
@@ -17,7 +12,7 @@ const Variety = props => {
    
       <Card className="variety-item__content">
       <NavLink to={`/${props.name}`}>
-        <div onClick={openDetailsHandler}>
+        <div>
           <h2>{props.name}</h2>
           <hr/>
           <p>{props.description}</p>
